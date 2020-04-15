@@ -18,19 +18,19 @@ completely developed at 80286 PC and then tested with newer systems.
 It still works at DOSBox in my Ubuntu. These files you could find
 in project:
 
-  /dist - bundle to install the project
-  /docs - some documents
-  /src - source code
-  /src/svml - runtime loader of byte-code
-  /src/svmd - interactive debugger
-  /src/svmac - compiler
-  /src/svmasm - simple IDE like Turbo Pascal with built-in documentation
-  /src/sfp - simple archiver used to build setup bundle
-  /src/installer - installer application
-  /src/units - all Pascal units required to build applications
-  /src/fonts - fonts to be used in graphics mode
-  /src/includes - a few libraries to write code for virtual machine
-  /src/examples - a few simple programs for virtual machine
+    /dist - bundle to install the project
+    /docs - some documents
+    /src - source code
+    /src/svml - runtime loader of byte-code
+    /src/svmd - interactive debugger
+    /src/svmac - compiler
+    /src/svmasm - simple IDE like Turbo Pascal with built-in documentation
+    /src/sfp - simple archiver used to build setup bundle
+    /src/installer - installer application
+    /src/units - all Pascal units required to build applications
+    /src/fonts - fonts to be used in graphics mode
+    /src/includes - a few libraries to write code for virtual machine
+    /src/examples - a few simple programs for virtual machine
   
 The IDE looks pretty simple, but has built-in documentation:
 
