@@ -1,0 +1,165 @@
+ ;--------------------------------------------------------------------------
+ ;                            SVM Install modul
+ ;                               Version 1.0
+ ;                      Copyright (c) 1999 ShAG Studio
+ ;--------------------------------------------------------------------------
+ ;    Внимание! Этот файл содержит жизненно важную информацию для установки
+ ; SVM версии 1.0 Любые изменения этого файла могут привести к непоправимым
+ ; результатам на вашем жестком диске.
+ ;--------------------------------------------------------------------------
+
+  ; Определяем размер свободного места на выбранном диске,
+  ; если меньше 800000 байт, то выдаем сообщение и прерываем
+  ; процесс установки
+  TEST SIZE=800000
+
+  ; Создаем структуру каталогов на выбранном диске
+  MK DIR=MAIN_DISK:\SVM
+  MK DIR=MAIN_DISK:\SVM\MAPS
+  MK DIR=MAIN_DISK:\SVM\INCLUDES
+  MK DIR=MAIN_DISK:\SVM\EXAMPLES
+  MK DIR=MAIN_DISK:\SVM\DOCS
+  MK DIR=MAIN_DISK:\SVM\BIN
+  MK DIR=MAIN_DISK:\SVM\FONTS
+
+  ; Распаковываем текстовые файлы - документация по программам -  в
+  ; каталог SVM\DOCS на выбранном диске
+  WRITE=Распаковываем документацию по компилятору
+  EXTRACT=SOURCE_PATH\svmac_d.sfp MAIN_DISK:\SVM\DOCS
+
+  WRITE=Распаковываем учебник по SVM ассемблеру версии 1.0
+  EXTRACT=SOURCE_PATH\svmasm_d.sfp MAIN_DISK:\SVM\DOCS
+
+  WRITE=Распаковываем документацию по дебуггеру
+  EXTRACT=SOURCE_PATH\svmd_d.sfp MAIN_DISK:\SVM\DOCS
+
+  ; Распаковываем стандартные библиотеки для работы с SVM в каталог
+  ; SVM\INCLUDES на выбранном диске
+  WRITE=Распаковываем стандартные библиотеки для SVM ассемблера версии 1.0
+  EXTRACT=SOURCE_PATH\graph.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\keyboard.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\math.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\stream.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\files.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\strings.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\terminal.sfp MAIN_DISK:\SVM\INCLUDES
+  EXTRACT=SOURCE_PATH\time.sfp MAIN_DISK:\SVM\INCLUDES
+
+  ; Распаковываем примеры прогамм написанные для SVM в каталог
+  ; SVM\EXAMPLES на выбранном диске
+  WRITE=Распаковываем примеры программ под виртуальную машину
+  EXTRACT=SOURCE_PATH\hello.sfp MAIN_DISK:\SVM\EXAMPLES
+  EXTRACT=SOURCE_PATH\gr_demo.sfp MAIN_DISK:\SVM\EXAMPLES
+  WRITE=Перепишите файл shag.fto в корневой каталог диска C:
+  EXTRACT=SOURCE_PATH\shag_fto.sfp MAIN_DISK:\SVM\EXAMPLES
+
+  ; Распаковываем системные векторные шрифты для работы с графикой в
+  ; каталог SVM\BIN на выбранном диске
+  WRITE=Распаковываем системные шрифты
+  EXTRACT=SOURCE_PATH\arial.sfp MAIN_DISK:\SVM\FONTS
+  EXTRACT=SOURCE_PATH\bios.sfp MAIN_DISK:\SVM\FONTS
+  EXTRACT=SOURCE_PATH\courier.sfp MAIN_DISK:\SVM\FONTS
+  EXTRACT=SOURCE_PATH\times.sfp MAIN_DISK:\SVM\FONTS
+  EXTRACT=SOURCE_PATH\triplex.sfp MAIN_DISK:\SVM\FONTS
+
+  ; Распаковываем компилятор ассемблера в байт-код SVM версии 1.0
+  WRITE=Распаковываем компилятор ассемблера
+  EXTRACT=SOURCE_PATH\svmac.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем эмулятор виртуальной машины SVM версии 1.0
+  WRITE=Распаковываем эмулятор виртуальной машины
+  EXTRACT=SOURCE_PATH\svml.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем дубуггер для виртуальной машины
+  WRITE=Распаковываем дебуггер для виртуальной машины
+  EXTRACT=SOURCE_PATH\svmd.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем среду разработки программ svmasm.exe
+  WRITE=Распаковываем среду разработки программ на ассемблере
+  EXTRACT=SOURCE_PATH\svmasm.sfp MAIN_DISK:\SVM\BIN
+  EXTRACT=SOURCE_PATH\svmasm_m.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем службу справок для среды разработки программ на ассемблере
+  WRITE=Распаковываем службу справок для среды разработки программ на ассемблере
+  EXTRACT=SOURCE_PATH\svmasm_h.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем оригинальный макет конфигурационного файла svmac.ini
+  ; в каталог SVM\BIN на выбранном диске
+  WRITE=Распаковываем конфигурационный файл svmac.ini
+  EXTRACT=SOURCE_PATH\svmac_i.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем оригинальный макет конфигурационного файла svml.ini
+  ; в каталог SVM\BIN на выбранном диске
+  WRITE=Распаковываем конфигурационный файл svml.ini
+  EXTRACT=SOURCE_PATH\svml_i.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем оригинальный макет конфигурационного файла svmasm.ini
+  ; в каталог SVM\BIN на выбранном диске
+  WRITE=Распаковываем конфигурационный файл svmasm.ini
+  EXTRACT=SOURCE_PATH\svmasm_i.sfp MAIN_DISK:\SVM\BIN
+
+  ; Распаковываем оригинальный макет конфигурационного файла svmd.ini
+  ; в каталоге SVM\BIN на выбранном диске
+  WRITE=Распаковываем конфигурационный файл svmd.ini
+  EXTRACT=SOURCE_PATH\svmd_i.sfp MAIN_DISK:\SVM\BIN
+
+  ; Перенастраиваем конфигурационный файл, устанавливаем в нем
+  ; новые пути и диски в соответствии с выбранным диском
+  WRITE=Корректируем конфигурационные файлы:
+  WRITE= SVMAC.INI
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmac.ini/OPTIONS/SWAP_DISK/MAIN_DISK
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmac.ini/OPTIONS/MAP_DIR/MAIN_DISK:\SVM\MAPS
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmac.ini/OPTIONS/RESULT_DIR/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmac.ini/OPTIONS/INCLUDES_DIR/MAIN_DISK:\SVM\INCLUDES
+  WRITE= SVML.INI
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/OPTIONS/SWAP_DISK/MAIN_DISK
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/OPTIONS/TOTAL_FONTS/5
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/FONTS/Arial Cyrillic/MAIN_DISK:\SVM\FONTS\arial.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/FONTS/Courier Cyrillic/MAIN_DISK:\SVM\FONTS\courier.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/FONTS/Dialog Cyrillic/MAIN_DISK:\SVM\FONTS\bios.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/FONTS/Triplex Cyrillic/MAIN_DISK:\SVM\FONTS\triplex.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svml.ini/FONTS/Times New Roman Cyrillic/MAIN_DISK:\SVM\FONTS\times.chr
+  WRITE= SVMASM.INI
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/SWAP_DISK/MAIN_DISK
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/MAP_DIR/MAIN_DISK:\SVM\MAPS
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/RESULT_DIR/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/INCLUDE_DIR/MAIN_DISK:\SVM\INCLUDES
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/SVML_DIR/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/SVMAC_DIR/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/DIRECTORIES/SVMD_DIR/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmasm.ini/COMPILE/PRIMARY_FILE/MAIN_DISK:\SVM\EXAMPLES\HELLO.ASM
+  WRITE= SVMD.INI
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/OPTIONS/SWAP_DISK/MAIN_DISK
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/OPTIONS/TFR_PATH/MAIN_DISK:\SVM\BIN
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/OPTIONS/HELP_PATH/MAIN_DISK:\SVM\DOCS
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/OPTIONS/TOTAL_FONTS/5
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/FONTS/Arial Cyrillic/MAIN_DISK:\SVM\FONTS\arial.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/FONTS/Courier Cyrillic/MAIN_DISK:\SVM\FONTS\courier.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/FONTS/Dialog Cyrillic/MAIN_DISK:\SVM\FONTS\bios.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/FONTS/Triplex Cyrillic/MAIN_DISK:\SVM\FONTS\triplex.chr
+  TO INI FILE=MAIN_DISK:\SVM\BIN\svmd.ini/FONTS/Times New Roman Cyrillic/MAIN_DISK:\SVM\FONTS\times.chr
+
+  ; Распаковываем текстовый файл, который после установки быдет выведен
+  ; на экран прграммой TFR
+  WRITE=Распаковываем текстовый файл содержащий соглашения по SVM
+  EXTRACT=SOURCE_PATH\readme.sfp MAIN_DISK:\SVM
+
+  ; Распаковываем просмотрщик текстовых фалов TFR v1.0
+  WRITE=Распаковываем TFR v1.0 для просмотра текстовых файлов
+  EXTRACT=SOURCE_PATH\tfr.sfp SOURCE_PATH
+
+  ; Делаем копии утилитных программ
+  COPY=SOURCE_PATH\tfr.exe MAIN_DISK:\SVM\BIN\tfr.exe
+  COPY=SOURCE_PATH\sfp.exe MAIN_DISK:\SVM\BIN\sfp.exe
+
+  ; Распаковываем регистрационную карточку
+  WRITE=Распаковываем регистрационную карточку
+  EXTRACT=SOURCE_PATH\rcard.sfp MAIN_DISK:\SVM
+
+  IN WINDOW=Внимание/Установка завершена. Нажмите Enter для продолжения
+
+  LOAD TEXT=MAIN_DISK:\SVM\readme.txt
+
+  ERASE=SOURCE_PATH\tfr.exe
+
+  IN WINDOW=Поздравляю/Поздравляю установка закончилась без проблем
